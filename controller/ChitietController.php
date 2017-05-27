@@ -3,9 +3,14 @@
 include('controller.php');
 class ChitietController extends Controller{
 
-	public function getChitiettin(){
+	
 
-		return $this->loadView('chitiet');
+	public function getChitiettin(){
+		$menu = $this->getMenu();
+
+		$arrayData = array('menu'=>$menu);
+
+		return $this->loadView('chitiet',$arrayData);
 	}
 }
 

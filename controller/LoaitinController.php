@@ -4,8 +4,9 @@ include('controller.php');
 class LoaitinController extends Controller{
 
 	public function getLoaitin(){
-		///$data = array();
-		return $this->loadView('type');
+		$menu = $this->getMenu();
+		$arrayData = array('menu'=>$menu);
+		return $this->loadView('type',$arrayData);
 	}
 }
 

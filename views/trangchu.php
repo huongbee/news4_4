@@ -1,6 +1,9 @@
 <?php
+//print_r($data);
+
 
 $slide = $data['slide'];
+$tinnoibat = $data['tinnoibat'];
 //print_r($slide);
 
 
@@ -55,12 +58,22 @@ $slide = $data['slide'];
 		<div class="container">
 			<div class="move-text">
 				<div class="breaking_news">
-					<h2>Breaking News</h2>
+					<h2>Tin nổi bật</h2>
 				</div>
 				<div class="marquee">
-					<div class="marquee1"><a class="breaking" href="single.html">A 5-year-old boy who recently returned to the U.S from Ebola-stricken West Africa is under observation after experiencing a fever.</a></div>
-					<div class="marquee2"><a class="breaking" href="single.html">The surprisingly successful president of the Philippines and peacemaking in the Philippines: Shaking it all up.</a></div>
-					<div class="clearfix"></div>
+					<?php
+					foreach($tinnoibat as $noibat){
+
+					?>
+					<div class="marquee1">
+					
+						<a class="breaking" href="single.html">
+						<?=$noibat->TieuDe?></a>
+
+					</div>
+					<?php
+					}
+					?>
 				</div>
 				<div class="clearfix"></div>
 				<script type="text/javascript" src="public/js/jquery.marquee.js"></script>
