@@ -42,7 +42,7 @@ $menu = $data['menu'];
 						//print_r($loai)
 						list($idloaitin,$tenloai,$aliasLoai) = explode(':', $loai)
 					?>
-					  <li><a href="short-codes.html"><?=$tenloai?></a></li>
+					  <li><a href="loaitin.php?id=<?=$idloaitin?>&alias=<?=$aliasLoai?>"><?=$tenloai?></a></li>
 					<?php
 					}
 					?>

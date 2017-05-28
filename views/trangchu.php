@@ -4,6 +4,8 @@
 
 $slide = $data['slide'];
 $tinnoibat = $data['tinnoibat'];
+$tinmoinhat = $data['tinmoinhat'];
+$tinxemnhieu = $data['tinxemnhieu'];
 //print_r($slide);
 
 
@@ -86,14 +88,13 @@ $tinnoibat = $data['tinnoibat'];
 				<div class="video-grids">
 					<div class="col-md-8 video-grids-left">
 						<div class="video-grids-left1">
-							<img src="public/images/9.jpg" alt=" " class="img-responsive" />
+							<img src="<?=$tinmoinhat->Hinh?>" alt=" " class="img-responsive" />
 							
 							<div class="video-grid-pos">
-								<h3><span>Bellevue</span>  Towers in Dubai Downtown UAE</h3>
+								<h3><?=$tinmoinhat->TieuDe?></h3>
 								<ul>
-									<li>9:32 <label>|</label></li>
-									<li><i>Adom Smith</i> <label>|</label></li>
-									<li><span>Blogger</span></li>
+									<li><?=date('d-m-Y h:i:s',strtotime($tinmoinhat->created_at));?></li>
+									
 								</ul>
 							</div>
 								
@@ -169,76 +170,30 @@ $tinnoibat = $data['tinnoibat'];
 						<div class="sap_tabs">	
 							<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 								<ul class="resp-tabs-list resp-tab-item grid1 resp-tab-active">
-									<span>most shared</span>
+									<span>Tin xem nhiều</span>
 									<div class="clear"></div>
 								</ul>				  	 
 								<div class="resp-tabs-container">
 									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+
+									<?php
+									foreach($tinxemnhieu as $xemnhieu){
+									?>
 										<div class="facts">
 											<div class="tab_list">
-												<img src="public/images/10.jpg" alt=" " class="img-responsive" />
+												<img src="public/images/tintuc/<?=$xemnhieu->Hinh?>" alt=" " class="img-responsive" />
 											</div>
 											<div class="tab_list1">
 												<ul>
-													<li><a href="#">Blogger</a> <label>|</label></li>
-													<li>30.03.2016</li>
+													<li><?=date('d/m/Y',strtotime($xemnhieu->created_at))?></li>
 												</ul>
-												<p><a href="#">Nam libero tempore, cum soluta nobis.</a></p>
+												<p><a href="#"><?=$xemnhieu->TieuDe?></a></p>
 											</div>
 											<div class="clearfix"> </div>
 										</div>
-										<div class="facts">
-											<div class="tab_list">
-												<img src="public/images/11.jpg" alt=" " class="img-responsive" />
-											</div>
-											<div class="tab_list1">
-												<ul>
-													<li><a href="#" class="green">international</a> <label>|</label></li>
-													<li>30.03.2016</li>
-												</ul>
-												<p><a href="#">Nam libero tempore, cum soluta nobis.</a></p>
-											</div>
-											<div class="clearfix"> </div>
-										</div>
-										<div class="facts">
-											<div class="tab_list">
-												<img src="public/images/12.jpg" alt=" " class="img-responsive" />
-											</div>
-											<div class="tab_list1">
-												<ul>
-													<li><a href="#" class="orange">general</a> <label>|</label></li>
-													<li>30.03.2016</li>
-												</ul>
-												<p><a href="#">Nam libero tempore, cum soluta nobis.</a></p>
-											</div>
-										  <div class="clearfix"> </div>
-										</div>
-										<div class="facts">
-											<div class="tab_list">
-												<img src="public/images/10.jpg" alt=" " class="img-responsive" />
-											</div>
-											<div class="tab_list1">
-												<ul>
-													<li><a href="#" class="orange1">business</a> <label>|</label></li>
-													<li>30.03.2016</li>
-												</ul>
-												<p><a href="#">Nam libero tempore, cum soluta nobis.</a></p>
-											</div>
-										  <div class="clearfix"> </div>
-										</div>
-										<div class="facts">
-											<div class="tab_list">
-												<img src="public/images/12.jpg" alt=" " class="img-responsive" />
-											</div>
-											<div class="tab_list1">
-												<ul>
-													<li><a href="#" class="orange2">world</a> <label>|</label></li>
-													<li>30.03.2016</li>
-												</ul>
-												<p><a href="#">Nam libero tempore, cum soluta nobis.</a></p>
-											</div>
-										  <div class="clearfix"> </div>
-										</div>
+									<?php
+									}
+									?>
 									</div>
 								</div>
 								<script src="public/js/easyResponsiveTabs.js" type="text/javascript"></script>

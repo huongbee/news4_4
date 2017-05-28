@@ -21,6 +21,20 @@ class HomeModel extends database{
 		return $this->loadAllRows();
 	}
 
+	public function getTinMoinhat(){
+		$sql = "SELECT * FROM tintuc ORDER BY id DESC LIMIT 0,1";
+		$this->setQuery($sql);
+		return $this->loadRow();
+	}
+
+
+
+	public function getTinXemnhieu(){
+		$sql = "SELECT * FROM tintuc ORDER BY SoLuotXem DESC LIMIT 0,5";
+		$this->setQuery($sql);
+		return $this->loadAllRows();
+	}
+
 }
 
 ?>
