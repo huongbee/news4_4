@@ -1,3 +1,10 @@
+<?php
+include('inc/functions.php');
+
+$tintuc = $data['tintuc'];
+$thang = date('m',strtotime($tintuc->created_at)); //01
+$thang = getMonth($thang);
+?>
 <!-- single -->
 	<div class="single">
 		<div class="container">
@@ -5,36 +12,16 @@
 				<div class="col-md-8 blog-left">
 					<div class="blog-left-grid">
 						<div class="blog-leftl">
-							<h4>December <span>31</span></h4>
-							<a href="#"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>10</a>
+							<h4><?=$thang?> <span><?=date('d',strtotime($tintuc->created_at))?></span></h4>
+							
 						</div>
 						<div class="blog-leftr">
-							<img src="public/images/25.jpg" alt=" " class="img-responsive" />
-							<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-							reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-							pariatur</p>
-							<ul>
-								<li><a href="#"><i class="glyphicon glyphicon-user" aria-hidden="true"></i>User Name</a></li>
-								<li><a href="#"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>0 Tages</a></li>
-								<li><a href="#"><i class="glyphicon glyphicon-comment" aria-hidden="true"></i>10 Comments</a></li>
-							</ul>
+							<img src="public/images/tintuc/<?=$tintuc->Hinh?>" alt=" " class="img-responsive" />
+							<p><?=$tintuc->NoiDung?></p>
+							
 						</div>
 						<div class="clearfix"> </div>
-						<div class="admin-text">
-								<h5>Written By Admin Name</h5>
-								<div class="admin-text-left">
-									<a href="#"><img src="public/images/icon1.png" alt=""/></a>
-								</div>
-								<div class="admin-text-right">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available, 
-									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-									<span>View all posts by:<a href="#"> Admin </a></span>
-								</div>
-								<div class="clearfix"> </div>
-						</div>
+						
 						<div class="response">
 							<h4>Responses</h4>
 							<div class="media response-info">
@@ -101,107 +88,50 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 blog-right">
-					<h3>Categories</h3>
-					<ul>
-						<li><a href="#">Aliquam erat volutpat</a></li>
-						<li><a href="#">Integer rutrum ante eu lacus</a></li>
-						<li><a href="#">Cum sociis natoque penatibus</a></li>
-						<li><a href="#">Mauris fermentum dictum magna</a></li>
-						<li><a href="#">Sed laoreet aliquam leo</a></li>
-						<li><a href="#">Cum sociis natoque penatibus</a></li>
-					</ul>
-					<div class="recent">
-						<h3>Recent Comments</h3>
-						<div class="recent-grids">
-							<div class="recent-grid">
-								<div class="wom">
-									<a href="#"><img src="public/images/6.jpg" alt=" " class="img-responsive" /></a>
-								</div>
-								<div class="wom-right">
-									<h4><a href="#">Integer rutrum ante eu</a></h4>
-									<p>Mauris fermentum dictum magna. Sed laoreet aliquam leo. 
-										Ut tellus dolor, dapibus eget.</p>
-								</div>
-								<div class="clearfix"> </div>
+				<div class="col-md-4 upcoming-events-right">
+					<h3>Loại tin</h3>
+					
+					<div class="banner-bottom-video-grid-left">
+						
+						<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+						<?php
+						foreach($menu as $mn){
+
+						?>
+						  <div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingOne">
+							  <h4 class="panel-title">
+								<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<?=$mn->id?>" aria-expanded="true" aria-controls="collapse<?=$mn->id?>">
+								  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i><?=$mn->Ten?>
+								</a>
+							  </h4>
 							</div>
-							<div class="recent-grid">
-								<div class="wom">
-									<a href="#"><img src="public/images/7.jpg" alt=" " class="img-responsive" /></a>
-								</div>
-								<div class="wom-right">
-									<h4><a href="#">Integer rutrum ante eu</a></h4>
-									<p>Mauris fermentum dictum magna. Sed laoreet aliquam leo. 
-										Ut tellus dolor, dapibus eget.</p>
-								</div>
-								<div class="clearfix"> </div>
+							<div id="collapse<?=$mn->id?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" style="height: 0px;">
+							  <div class="panel-body">
+								<ul style="padding-left: 20px">
+								<?php
+								$loaitin = $mn->LoaiTin;
+								$arrLoaitin = explode(',', $loaitin);
+								foreach($arrLoaitin as $loai){
+									//print_r($loai)
+									list($idloaitin,$tenloai,$aliasLoai) = explode(':', $loai)
+								?>
+									<li><a href="loaitin.php?id=<?=$idloaitin?>&alias=<?=$aliasLoai?>"><?=$tenloai?></a></li>
+								<?php
+								}
+								?>
+								</ul>
+							  </div>
 							</div>
-							<div class="recent-grid">
-								<div class="wom">
-									<a href="#"><img src="public/images/8.jpg" alt=" " class="img-responsive" /></a>
-								</div>
-								<div class="wom-right">
-									<h4><a href="#">Integer rutrum ante eu</a></h4>
-									<p>Mauris fermentum dictum magna. Sed laoreet aliquam leo. 
-										Ut tellus dolor, dapibus eget.</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
+						  </div>
+						  
+						  	<?php
+							}
+							?>
 						</div>
+						
 					</div>
-					<div class="footer-top-grid1">
-						<h3>Recent Tags</h3>
-						<ul class="tag2">
-							<li><a href="#">awesome</a></li>
-							<li><a href="#">strategy</a></li>
-							<li><a href="#">development</a></li>
-						</ul>
-						<ul class="tag2">
-							<li><a href="#">css</a></li>
-							<li><a href="#">photoshop</a></li>
-							<li><a href="#">photography</a></li>
-							<li><a href="#">html</a></li>
-						</ul>
-						<ul class="tag2">
-							<li><a href="#">awesome</a></li>
-							<li><a href="#">strategy</a></li>
-							<li><a href="#">development</a></li>
-						</ul>
-						<ul class="tag2">
-							<li><a href="#">css</a></li>
-							<li><a href="#">photoshop</a></li>
-							<li><a href="#">photography</a></li>
-							<li><a href="#">html</a></li>
-						</ul>
-						<ul class="tag2">
-							<li><a href="#">awesome</a></li>
-							<li><a href="#">strategy</a></li>
-							<li><a href="#">development</a></li>
-						</ul>
-					</div>
-					<div class="poll">
-						<h3>Poll</h3>
-							<div class="progress p">
-							  <div class="progress-bar bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-								60%
-							  </div>
-							</div>
-							<div class="progress p">
-							  <div class="progress-bar bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
-								80%
-							  </div>
-							</div>
-							<div class="progress p">
-							  <div class="progress-bar bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-								90%
-							  </div>
-							</div>
-							<div class="progress p">
-							  <div class="progress-bar bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-								40%
-							  </div>
-							</div>
-					</div>
+					
 				</div>
 				<div class="clearfix"> </div>
 			</div>

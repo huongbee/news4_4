@@ -2,6 +2,7 @@
 
 $tintheoloai = $data['tintheoloai'];
 $loaitin = $data['loaitin'];
+$list = $data['list'];
 //print_r($tintheoloai);
 ?>
 <div class="banner-bottom">
@@ -32,6 +33,7 @@ $loaitin = $data['loaitin'];
 							}
 							?>
 							</ul>
+							<?=$list?>
 						</div>
 						<div class="col-md-4 upcoming-events-right">
 							<div class="sap_tabs">	
