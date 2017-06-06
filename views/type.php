@@ -22,7 +22,7 @@ $list = $data['list'];
 										<img src="public/images/tintuc/<?=$tin->Hinh?>" alt=" " class="img-responsive" />
 									</div>
 									<div class="news-grid-right1">
-										<h4><a href="single.html"><?=$tin->TieuDe?></a></h4>
+										<h4><a href="chitiettin.php?id=<?=$tin->id?>"><?=$tin->TieuDe?></a></h4>
 										<h5><i><?=date('d/m/Y',strtotime($tin->created_at))?></i></h5>
 										<p><?=$tin->TomTat?></p>
 									</div>

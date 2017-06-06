@@ -12,6 +12,13 @@ class ChitietTinModel extends database{
 	}
 
 
+	public function getComment($id_tin){
+		$sql = "SELECT * FROM comment WHERE idTinTuc = $id_tin";
+		$this->setQuery($sql);
+		return $this->loadAllRows(array($id_tin));
+	}
+
+
 }
 
 ?>

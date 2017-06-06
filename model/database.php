@@ -24,6 +24,7 @@ class database{
         $count = count($option);
         if ($count>0) {
             $sql='insert into '.$table.' values ('.substr(str_repeat('?,', $count),0,-1).')';
+
             $this->setQuery($sql);
             $result = $this->execute($option);
         }
@@ -70,6 +71,7 @@ class database{
     //Function execute the query 
     public function execute($options=array()) {
         $this->_cursor = $this->_dbh->prepare($this->_sql);
+        
         if($options) {  //If have $options then system will be tranmission parameters
             for($i=0;$i<count($options);$i++) {
                 $this->_cursor->bindParam($i+1,$options[$i]);

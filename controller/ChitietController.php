@@ -12,8 +12,9 @@ class ChitietController extends Controller{
 		$id_tin = $_GET['id'];
 		$model = new ChitietTinModel;
 		$tintuc = $model->getNewsDetail($id_tin);
+		$comment = $model->getComment($id_tin);
 
-		$arrayData = array('menu'=>$menu,'tintuc'=>$tintuc);
+		$arrayData = array('menu'=>$menu,'tintuc'=>$tintuc,'comment'=>$comment);
 
 		return $this->loadView('chitiet',$arrayData);
 	}

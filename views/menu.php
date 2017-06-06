@@ -53,6 +53,30 @@ $menu = $data['menu'];
 				}
 				?>
 				<li><a href="contact.html">Liên hệ</a></li>
+
+				<?php
+
+				if(isset($_SESSION['name'])){
+				?>
+
+				<li role='presentation' class='dropdown'>
+					<a class='dropdown-toggle' data-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>Chào bạn <?=$_SESSION['name']?>
+					<span class='caret'></span>
+					</a>
+						<ul class='dropdown-menu'>
+							<li><a href='logout.php'>Đăng xuất</a></li>
+						</ul>
+				</li>
+				<?php
+				}
+				else{
+
+				?>
+				<li><a href="register.php">Đăng kí</a></li>
+				<li><a href="login.php">Đăng nhập</a></li>
+				<?php
+				}
+				?>
 			</ul>
 		</div>
 	</nav>

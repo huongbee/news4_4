@@ -13,7 +13,7 @@ class LoaitinModel extends database{
 	}
 
 
-	function getTintucPhantrang($id_loai,$vt=0,$limit=1)
+	public function getTintucPhantrang($id_loai,$vt=0,$limit=1)
 	{
 		$sql="select tt.*, lt.TenKhongDau as ten_khong_dau from tintuc tt inner join loaitin lt on tt.idLoaiTin = lt.id where idLoaiTin = $id_loai limit $vt,$limit";
 		$this->setQuery($sql);

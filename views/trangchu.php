@@ -187,7 +187,7 @@ $tinxemnhieu = $data['tinxemnhieu'];
 												<ul>
 													<li><?=date('d/m/Y',strtotime($xemnhieu->created_at))?></li>
 												</ul>
-												<p><a href="#"><?=$xemnhieu->TieuDe?></a></p>
+												<p><a href="chitiettin.php?id=<?=$xemnhieu->id?>"><?=$xemnhieu->TieuDe?></a></p>
 											</div>
 											<div class="clearfix"> </div>
 										</div>
