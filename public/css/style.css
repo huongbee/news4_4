@@ -2805,7 +2805,7 @@ img.mobile1 {
 	resize: none;
 	margin:1em 0;
 }
-.coment-form input[type="submit"] {
+.coment-form input[type="button"] {
 	background: #1ABC9C;
     text-transform: uppercase;
     border: none;

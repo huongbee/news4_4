@@ -18,6 +18,11 @@ class ChitietController extends Controller{
 
 		return $this->loadView('chitiet',$arrayData);
 	}
+
+	public function postAddComment($idTinTuc, $idUser,$comment){
+		$model = new  ChitietTinModel();
+		$comment = $model->addComment($idTinTuc, $idUser,$comment);
+	}
 }
 
 

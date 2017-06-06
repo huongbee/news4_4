@@ -49,6 +49,7 @@ class UserController extends Controller{
 		$user = $model->getUserLogin($email,$password);
 		if($user){
 			$_SESSION['name'] = $user->name;
+			$_SESSION['id_user'] = $user->id;
 			//print_r($user);
 			if(isset($_SESSION['error2'])){
 				unset($_SESSION['error2']);
