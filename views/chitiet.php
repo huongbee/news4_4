@@ -46,10 +46,14 @@ $comment = $data['comment'];
 								</div>
 								<div class="clearfix"> </div>
 							</div>
+
 							<?php
 							}
 							?>
 
+						</div>
+						<div class="">
+						 <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5" width="800"></div>
 						</div>	
 						<div class="coment-form">
 							<h4>Gửi bình luận</h4>
@@ -118,6 +122,7 @@ $(document).ready(function(){
 		var noidung = $('#txtComment').val()
 		var idTin = $('#idTin').val()
 		var idUser = $('#idUser').val()
+
 		$.ajax({
 			type:"POST",
 			url:"http://localhost/news4_4/addcomment.php",
@@ -126,8 +131,8 @@ $(document).ready(function(){
 				id_tin:idTin,
 				noidung:noidung
 			},
-			success:function(){
-				$('#append-data').append(noidung)
+			success:function(d){
+				$('#append-data').append(d)
 				$('#txtComment').val('')
 			},
 			error:function(){

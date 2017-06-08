@@ -22,7 +22,18 @@ class ChitietController extends Controller{
 	public function postAddComment($idTinTuc, $idUser,$comment){
 		$model = new  ChitietTinModel();
 		$comment = $model->addComment($idTinTuc, $idUser,$comment);
+		if($comment>0){
+			$comments = $model->getCommentById($comment); //id
+			return $this->getView('data_append',$comments);
+		}
+		else{
+			return "Lỗi";
+		}
+		
 	}
+
+
+
 }
 
 

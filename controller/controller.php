@@ -14,6 +14,10 @@ class Controller{
 	}
 
 
+	public function getView($view,$data=array()){
+		include("views/$view.php");
+	}
+
 
 	
 }

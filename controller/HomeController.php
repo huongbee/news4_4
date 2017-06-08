@@ -18,7 +18,8 @@ class HomeController extends Controller{
 						'tinmoinhat'=>$tinmoinhat, ///
 						'tinxemnhieu'=>$tinxemnhieu
 					);
-		
+		//return $this->getView('a',json_encode($mangData));
+
 		return $this->loadView('trangchu',$mangData);
 	}
 }
