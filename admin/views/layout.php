@@ -373,6 +373,25 @@
             </div>
           </section>
       </section>
+        <?php
+        if(isset($_COOKIE['thanhcong'])){
+
+        ?>
+        <div class="fixed-top alert alert-success" style="z-index: 2000; position: fixed;right:10px;bottom: 10px;">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            <?=$_COOKIE['thanhcong']?>
+        </div>
+        <?php
+        }
+        elseif(isset($_COOKIE['thatbai'])){
+        ?>
+        <div class="fixed-top alert alert-danger" style="z-index: 2000; position: fixed;right:10px;bottom: 10px;">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            <?=$_COOKIE['thatbai']?>
+        </div>
+        <?php
+        }
+        ?>
       <!--main content end-->
       <!--footer start-->
       <footer class="site-footer">

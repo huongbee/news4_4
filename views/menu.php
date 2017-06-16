@@ -42,7 +42,7 @@ $menu = $data['menu'];
 						//print_r($loai)
 						list($idloaitin,$tenloai,$aliasLoai) = explode(':', $loai)
 					?>
-					  <li><a href="loaitin.php?id=<?=$idloaitin?>&alias=<?=$aliasLoai?>"><?=$tenloai?></a></li>
+					  <li><a href="<?=$idloaitin?>-<?=$aliasLoai?>"><?=$tenloai?></a></li>
 					<?php
 					}
 					?>
@@ -72,8 +72,8 @@ $menu = $data['menu'];
 				else{
 
 				?>
-				<li><a href="register.php">Đăng kí</a></li>
-				<li><a href="login.php">Đăng nhập</a></li>
+				<li><a href="dang-ki">Đăng kí</a></li>
+				<li><a href="dang-nhap">Đăng nhập</a></li>
 				<?php
 				}
 				?>
