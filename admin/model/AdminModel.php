@@ -38,7 +38,39 @@ class AdminModel extends database{
 		else{
 			return false;
 		}
+	}
 
+
+	public function addLoaitin($id_theloai,$ten, $alias){
+		$sql = "INSERT INTO loaitin(idTheLoai,Ten,TenKhongDau) VALUES($id_theloai,'$ten', '$alias')";
+		$this->setQuery($sql);
+		$result = $this->execute(array($id_theloai,$ten, $alias));
+		if($result){
+			return $this->getLastId();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function deleteLoaitin($id){
+		$sql = "DELETE FROM loaitin WHERE id=$id";
+		$this->setQuery($sql);
+		return $this->execute(array($id));
+	}
+
+
+	public function getAllTintuc(){
+		$sql = "SELECT * FROM tintuc ORDER BY id DESC LIMIT 0,200 ";
+		$this->setQuery($sql);
+		return $this->loadAllRows();
+	}
+
+
+	public function getAllLoaitin(){
+		$sql = "SELECT * FROM loaitin";
+		$this->setQuery($sql);
+		return $this->loadAllRows();
 	}
 }
 

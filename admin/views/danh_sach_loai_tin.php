@@ -35,7 +35,8 @@
 			        <td><a href="danh_sach_tin.php?id=<?=$loaitin->id?>"><button class="btn btn-info">Xem</button></a></td>
 			        <td>
 			        	<a href="edit_loaitin.php?id=<?=$loaitin->id?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="font-size: 18px"></span></a> | 
-			        	<span class="glyphicon glyphicon-trash" aria-hidden="true" style="font-size: 18px"></span></td>
+			        	<a href="delete_loaitin.php?id=<?=$loaitin->id?>"><span class="glyphicon glyphicon-trash" aria-hidden="true" style="font-size: 18px"></span></a>
+			        </td>
 			      </tr>
 			    <?php
 			    $stt+=1; //stt=stt+1
