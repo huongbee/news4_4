@@ -28,7 +28,7 @@
     <link href="public/css/style.css" rel="stylesheet">
     <link href="public/css/style-responsive.css" rel="stylesheet" />
 
-
+    <script src="public/ckeditor/ckeditor.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
     <!--[if lt IE 9]>

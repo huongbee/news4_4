@@ -24,7 +24,7 @@ $loaitin = $data['loaitin'];
         	</div>
         	<div class="col-md-4"></div>
         </div>
-        <div class="panel-body">
+        <div class="panel-body" id="loadnews">
         	
          	<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 			    <thead>
@@ -56,7 +56,9 @@ $loaitin = $data['loaitin'];
 			        <td><img src="../public/images/tintuc/<?=$tin->Hinh?>" width="100"></td>
 			        <td><?=$tin->SoLuotXem?></td>
 			        <td><input type="checkbox"<?=$tin->NoiBat==1?"checked":''?>></td>
-			        <td><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="font-size: 18px"></span> | <span class="glyphicon glyphicon-trash" aria-hidden="true" style="font-size: 18px"></span></td>
+			        <td>
+			        	<a href="edit_tintuc.php?id=<?=$tin->id?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="font-size: 18px"></span></a> | 
+			        	<span class="glyphicon glyphicon-trash" aria-hidden="true" style="font-size: 18px"></span></td>
 			      </tr>
 			    <?php
 			    $stt+=1; //stt=stt+1
@@ -70,7 +72,7 @@ $loaitin = $data['loaitin'];
 <script src="public/js/jquery.js"></script>
 <script>
 	$(document).ready(function(){
-		$('#loaitin').change(function(){
+		$('#loaitin').on('change',function(){
 			var id_loaitin = $(this).val()
 			//alert(id_loaitin)
 			$.ajax({
@@ -78,9 +80,10 @@ $loaitin = $data['loaitin'];
 				data:{
 					id_loaitin:id_loaitin //tên biến gửi đi:value
 				},
-				url:"",
+				url:"new_by_type.php",
 				success:function(data){
-					console.log(data)
+					//console.log(data)
+					$('#loadnews').html(data)
 				},
 				error:function(){
 					console.log('err')

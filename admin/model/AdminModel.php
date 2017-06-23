@@ -72,6 +72,51 @@ class AdminModel extends database{
 		$this->setQuery($sql);
 		return $this->loadAllRows();
 	}
+
+
+	public function insertNews($tieude, $tieudekhongdau,$tomtat, $noidung,$hinh,$noibat,$id_loai){
+		$sql = "INSERT INTO tintuc(TieuDe,TieuDeKhongDau,TomTat,NoiDung,Hinh,NoiBat,idLoaiTin) VALUES(?,?,?,?,?,?,?)";
+		$this->setQuery($sql);
+		$result = $this->execute(array($tieude, $tieudekhongdau,$tomtat, $noidung,$hinh,$noibat,$id_loai));
+
+		if($result){
+			return $this->getLastId();
+		}
+		else{
+			return false;
+		}
+	}
+
+
+	public function editNews($tieude, $tieudekhongdau,$tomtat, $noidung,$noibat,$id_loai, $id){
+		$sql = "UPDATE tintuc SET `TieuDe`='$tieude',`TieuDeKhongDau`='$tieudekhongdau',`TomTat`='$tomtat',`NoiDung`='$noidung', `NoiBat`='$noibat',`idLoaiTin`=$id_loai WHERE id=$id";
+		$this->setQuery($sql);
+		$result = $this->execute(array($tieude, $tieudekhongdau,$tomtat, $noidung,$noibat,$id_loai, $id));
+		if($result==true){
+			return $id;
+		}
+		else{
+			return false;
+		}
+	}
+	public function editImageNews($hinh,$id){
+		$sql = "UPDATE tintuc SET Hinh = '$hinh' WHERE id=$id";
+		$this->setQuery($sql);
+		$result = $this->execute(array($hinh,$id));
+		if($result==true){
+			return $id;
+		}
+		else{
+			return false;
+		}
+	}
+
+
+	public function getTintucById($id){
+		$sql = "SELECT * FROM tintuc WHERE id=$id";
+		$this->setQuery($sql);
+		return $this->loadRow(array($id));
+	}
 }
 
 
