@@ -117,6 +117,13 @@ class AdminModel extends database{
 		$this->setQuery($sql);
 		return $this->loadRow(array($id));
 	}
+
+
+	public function deleteTintuc($id){
+		$sql = "DELETE FROM tintuc WHERE id=$id";
+		$this->setQuery($sql);
+		return $this->execute(array($id));
+	}
 }
 
 

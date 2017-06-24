@@ -204,6 +204,20 @@ class AdminController extends Controller{
 
 	}
 
+	public function getDeteleTintuc(){
+		$id = $_GET['id'];
+		$model = new AdminModel();
+		$result = $model->deleteTintuc($id);
+
+		if($result==true){
+			setcookie('thanhcong','Xóa thành công',time()+30);
+			
+		}
+		else{
+			setcookie('thatbai','Lỗi',time()+30);
+			
+		}
+	}
 
 }
 
